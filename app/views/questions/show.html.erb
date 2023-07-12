@@ -1,31 +1,4 @@
 <h2><%= @question.question_rating.description %></h2>
 <p><%= @question.description %></p>
 
-<%= form_with(model: Answer.new, url: questions_path, method: "post") do |form| %>
-  <%= form.hidden_field :question_id, value: @question.id %>
-  <%= form.hidden_field :student_id, value: 1 %>
-  <fieldset>
-    <legend>Responda à pergunta:</legend>
-    <p>1 <%= form.label :student_answer_1 do %>
-      <%= form.radio_button :student_answer, "1", id: "student_answer_1" %> Discordo Totalmente
-    <% end %></p>
-    <p>2 <%= form.label :student_answer_2 do %>
-      <%= form.radio_button :student_answer, "2", id: "student_answer_2" %>
-    <% end %></p>
-    <p>3 <%= form.label :student_answer_3 do %>
-      <%= form.radio_button :student_answer, "3", id: "student_answer_3" %>
-    <% end %></p>
-    <p>4 <%= form.label :student_answer_4 do %>
-      <%= form.radio_button :student_answer, "4", id: "student_answer_4" %>
-    <% end %></p>
-    <p>5 <%= form.label :student_answer_5 do %>
-      <%= form.radio_button :student_answer, "5", id: "student_answer_5" %>
-    <% end %></p>
-    <p>6 <%= form.label :student_answer_6 do %>
-      <%= form.radio_button :student_answer, "6", id: "student_answer_6" %> Concordo Totalmente
-    <% end %></p>
-    <p><%= form.check_box :unknown %> Não sei responder</p>
-    <p><%= form.check_box :not_applicable %> Não se aplica</p>
-  </fieldset>
-  <%= form.submit "Enviar" %>
-<% end %>
+<%= render 'questions/form', question: @question %>
