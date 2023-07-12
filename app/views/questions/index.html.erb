@@ -4,8 +4,12 @@
   </div>
 <% end %>
 
-<% if @question %>
-  <%= link_to 'Responder', question_path(@question.id) %>
-<% else %>
-  Não há questões a serem respondidas
-<% end %>
+<div class="card-body">
+  <h2>Bem vindo ao sistema aura</h2>
+  <p>Clique em responder para começar.</p>
+  <% if @question %>
+    <%= link_to 'Responder', question_path(@question.id), class: 'btn btn-primary' %>
+  <% else %>
+    <span>Não há questões a serem respondidas</span>
+  <% end %>
+</div>

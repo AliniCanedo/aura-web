@@ -1,4 +1,6 @@
-<h2><%= @question.question_rating.description %></h2>
-<p><%= @question.description %></p>
+<h2 class="px-3 mt-3"><%= @question.question_rating.description %></h2>
 
-<%= render 'questions/form', question: @question, current_student:  @current_student %>
+<div class="card p-5 mt-5">
+    <p><%= @question.description %></p>
+    <%= render 'questions/form', question: @question, current_student:  @current_student %>
+</div>
