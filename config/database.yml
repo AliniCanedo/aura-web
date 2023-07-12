@@ -19,6 +19,7 @@ development:
 test:
   <<: *default
   database: db/test.sqlite3
+  host: db_test
 
 production:
   <<: *default

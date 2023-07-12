@@ -10,6 +10,20 @@ services:
       - .:/app
     depends_on:
       - db
+
+  test:
+    container_name: aura-web-test
+    build:
+      context: .
+      dockerfile: DockerfileTest
+    command: bundle exec rspec
+    volumes:
+      - .:/app
+    ports:
+      - '3003:3003'
+    depends_on:
+      - db
+
   db:
     image: postgres
     environment:
