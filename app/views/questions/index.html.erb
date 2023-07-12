@@ -3,3 +3,9 @@
     <%= flash[:notice] %>
   </div>
 <% end %>
+
+<% if @question %>
+  <%= link_to 'Responder', question_path(@question.id) %>
+<% else %>
+  Não há questões a serem respondidas
+<% end %>

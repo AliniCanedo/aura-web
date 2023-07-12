@@ -1,6 +1,16 @@
 class QuestionsController < ApplicationController
+    before_action :authenticate_student!
+
+    def index
+        @question = Question.first
+    end
+
     def show 
         @question = Question.find(params[:id])
+        @current_student = current_student
+    rescue ActiveRecord::RecordNotFound
+        flash[:notice] = "Não há nenhuma questão disponível."
+        redirect_to questions_path
     end
 
     def create
